@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>learn vue js</title>
+  </head>
+  <body>
+
+  <!-- start and data type   -->
+<div id="apps">
+welcome {{ name  + ' youe age is '  + age }}
+    <h4>{{ sleep ? 'ali  up' : 'ali speep'}}</h4>
+    <p>{{ 'ali skills is  ' +  skills[2] }}</p>
+    <p>{{ 'the days is '  + days[1].tus }}</p>
+    <p>{{ sayHallo() }}</p>
+    <p>{{  calcAgeInDay() }}</p>
+    <p>{{ date }}</p>
+    <button @click="showDate">Show Date</button>
+    <hr>
+
+    <!-- v-text , v-html   -->
+    <p v-html=" 'my wife ' + name"></p>
+    <p v-text>my father is : {{ father }}</p>
+    <hr>
+    <!-- v-for  -->
+
+    <ul>
+        <li v-for="(skill, index) in skills">
+            {{ index }} => {{ skill }}
+        </li>
+    </ul>
+    <select name="" id="">
+        <option v-for="(skill, index) in skills" >
+            {{ skill }}
+        </option>
+    </select>
+
+    <hr>
+
+    <!-- v-if   -->
+   <p v-if="father">welcme : {{ father }}</p>
+
+    <p v-if="degree  > 50  ">You Pass</p>
+    <p v-else-if="degree <  50 ">You field </p>
+    <p v-else>out of range</p>
+
+    <br>
+    <!-- v-show v-once -->
+
+    <p v-show="father">show : {{ father }}</p>
+    <p v-show="age">show : {{ age }}</p>
+
+</div>
+
+
+
+
+
+
+
+
+    <script src="js/vue.js">  </script>
+    <script>
+        new Vue ({
+          el: '#apps',
+          data : {
+              name : '<h1>Nadia</h1>',
+              father : 'Ali',
+              age : 45,
+              sleep : false,
+              degree : 558,
+              date : 'Today',
+              skills : ['php', 'js', 'css'],
+              days : [
+                  {
+                      'sat'  : 90,
+                      'son'  : 89,
+                      'mon'  : 75,
+                  },
+                  {
+                      'tus' : 99,
+                      'wen' : 24,
+                  }
+              ]
+          },
+
+
+            methods : {
+                sayHallo  : function () {
+                    return 'Hello ' +  this.name  + ' mower';
+                },
+                calcAgeInDay : function () {
+                   return 'Hallo ' + this.name + 'Your age in days is ' +  this.age * 365 + 'days' ;
+                },
+                showDate : function () {
+                    return this.date = Date();
+                }
+            }
+        })
+    </script>
+  </body>
+</html>
